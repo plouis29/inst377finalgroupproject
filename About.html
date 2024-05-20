@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link rel="stylesheet" href="AboutCSS.css">
+    <script src = "screenTraition.js" defer></script>
+</head>
+<body>
+    <nav id="mainNav">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Project_Specific.html">Project Specifics</a></li>
+        </ul>
+    </nav>
+
+    <div id="Header">
+        <header>
+            <h1>About Page</h1>
+        </header>
+        <header>
+            <h2>Help and FAQs</h2>
+        </header>
+    
+        <section id="faq-section">
+            <div id="food-faq">
+                <h2>Food Related FAQs</h2>
+                <p><strong>Q: How do I find nutritional information?</strong></p>
+                <p>A: You can search for any food item using our search feature to find detailed nutritional information.</p>
+                
+                <p><strong>Q: What allergen information is available?</strong></p>
+                <p>A: Our product listings include detailed allergen information to help you make safe food choices.</p>
+            </div>
+    
+            <div id="website-faq">
+                <h2>Website/Other FAQs</h2>
+                <p><strong>Q: How can I contact support?</strong></p>
+                <p>A: You can contact our support team through the contact form on our website under the "Contact Us" section.</p>
+                
+                <p><strong>Q: How do I report a problem with the website?</strong></p>
+                <p>A: If you encounter any issues, please report them using the feedback form on our website or by emailing us directly.</p>
+            </div>
+            <div id="contact-form">
+                <h2>Contact Us</h2>
+                <form id="contact-form" onsubmit="handleSubmit(event)">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="issue">Describe your issue:</label>
+                    <textarea id="issue" name="issue" rows="4" required></textarea>
+                    
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+    
+        <footer>
+            <p>&copy; 2024 INST377 Nutrition Facts. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const issue = document.getElementById('issue').value;
+
+            const serverUrl = (window.location.port === '5500' || window.location.port === '') 
+                ? 'http://localhost:3000/submit' 
+                : '/submit';
+
+            try {
+                const response = await fetch(serverUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, issue })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Thank you for contacting us!');
+                } else {
+                    console.error('Submission error:', result.error);
+                    alert('Failed to submit: ' + result.error.message);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+

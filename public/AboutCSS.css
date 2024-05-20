@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav#mainNav {
+    text-align: center;
+    background-color: rgb(84, 0, 0);
+}
+
+nav#mainNav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav#mainNav ul li {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    transition: .5s;
+}
+
+nav#mainNav ul li:hover {
+    cursor: pointer;
+    background-color: rgb(195, 0, 0);
+    box-shadow: 0 12px 16px 0 rgb(255, 67, 67), 0 17px 50px 0 rgb(255, 67, 67);
+}
+
+nav#mainNav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    font-size: xx-large;
+    text-align: center;
+}
+
+#food-faq, #website-faq, #contact-form {
+    border: 2px solid rgb(84, 0, 0); 
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#info {
+    text-align: center;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}

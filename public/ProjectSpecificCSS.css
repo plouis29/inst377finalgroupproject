@@ -1,0 +1,41 @@
+#food-facts {
+    text-align: center;
+}
+#food-facts-table {
+    width: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#food-facts-table th, #food-facts-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#food-facts-table th {
+    background-color: rgb(192, 47, 47);
+    color: white;
+}
+
+#food-facts-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#food-facts-table tr:hover {
+    background-color: #ddd;
+}
+
+#food-facts-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
